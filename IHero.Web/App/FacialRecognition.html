@@ -1,0 +1,56 @@
+﻿ <!-- Intro 2 -->
+<div id="FacialRecognition" class="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-md-offset-3 text-center">
+                <p>Search the National Archives of Australia, Australian War Memorial, State Library of Queensland and the State Library of Western Australia for photographs that match your photo.</p>
+                <p>Click browse to select your photo</p>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <label class="btn btn-primary btn-file">
+                            Browse <input type="file" style="display: none;" file-model="vm.myFile" />
+                        </label>
+                    </span>
+                    <input type="text" style="cursor:default;" class="form-control" ng-model="vm.myFile.name" id="basic-url" ng-disabled="true">
+                    
+                </div>
+                <br />
+                <div class="btn-group" role="group">
+                    <button class="btn btn-default" ng-click="vm.uploadFile()" title="Search the first 1000 images found for a match">Quick Search</button>
+                    <button class="btn btn-default" ng-click="vm.uploadFileDeep()" title="Search all images for a match">Deep Search</button>
+                </div>
+                <div ng-if="vm.loading">
+                <br />
+                <i class="fa fa-spinner fa-spin" style="font-size:30px;"></i></div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="vm.FaceVM">
+        <h2 class="text-center">Photo Details</h2><br />
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div id="photoDiv">
+
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div id="photoDetailsDiv">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="vm.FaceVM" class="call-to-action" style="padding-top:0;">
+        <h2 style="color:white; padding-top:20px; padding-bottom:20px;" class="text-center">Results</h2>
+        <h4 ng-show="!vm.FaceVM.IsCortanaResults" style="color:white; padding-bottom:20px;" class="text-center">No matches found sorry. Here are some photos that match the gender and age.</h4>
+        <div class="container">
+            <span style="color:white" ng-show="vm.FaceVM && vm.FaceVM.ResultFaces.length < 1">No results found</span>
+            <div id="resultsDiv">
+
+            </div>  
+        </div>
+    </div>
+</div>
+<!-- /Intro -->
