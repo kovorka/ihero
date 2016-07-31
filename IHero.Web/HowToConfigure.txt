@@ -1,0 +1,3 @@
+﻿IHero.Web\Services\CortanaService.cs - replace _subscriptionKey with your Analytics key.
+IHero.Web\Web.Config - Enter connection string 
+IHero.Tests\App.Config - Enter connection string.

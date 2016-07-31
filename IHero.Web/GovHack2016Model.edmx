@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GovHack2016Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocalFileName" Type="varchar" MaxLength="500" />
+          <Property Name="HostingSite" Type="varchar" MaxLength="50" />
+          <Property Name="WarConflicts" Type="varchar(max)" />
+          <Property Name="PhotoIdentifier" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="PhotoUrl" Type="varchar" MaxLength="500" />
+          <Property Name="ContentUrl" Type="varchar" MaxLength="500" />
+          <Property Name="IsImageDownloaded" Type="bit" Nullable="false" />
+          <Property Name="IsFaceDetected" Type="bit" Nullable="false" />
+          <Property Name="ErrorText" Type="varchar" MaxLength="500" />
+          <Property Name="HasError" Type="bit" Nullable="false" />
+          <Property Name="Width" Type="int" Nullable="false" />
+          <Property Name="Height" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhotoFace">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhotoId" Type="int" Nullable="false" />
+          <Property Name="CortanaFaceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Age" Type="float" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="Glasses" Type="varchar" MaxLength="75" />
+          <Property Name="SmileCalculation" Type="float" />
+          <Property Name="HasSmile" Type="bit" />
+          <Property Name="FaceRectangleTop" Type="int" Nullable="false" />
+          <Property Name="FaceRectangleLeft" Type="int" Nullable="false" />
+          <Property Name="FaceRectangleHeight" Type="int" Nullable="false" />
+          <Property Name="FaceRectangleWidth" Type="int" Nullable="false" />
+          <Property Name="FaceGroupId" Type="uniqueidentifier" />
+        </EntityType>
+        <Association Name="FK_PhotoFace_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PhotoFace" Type="Self.PhotoFace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoFace">
+              <PropertyRef Name="PhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GovHack2016ModelStoreContainer">
+          <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhotoFace" EntityType="Self.PhotoFace" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PhotoFace_Photo" Association="Self.FK_PhotoFace_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="PhotoFace" EntitySet="PhotoFace" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GovHack2016Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocalFileName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HostingSite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WarConflicts" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoIdentifier" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ContentUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsImageDownloaded" Type="Boolean" Nullable="false" />
+          <Property Name="IsFaceDetected" Type="Boolean" Nullable="false" />
+          <Property Name="ErrorText" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HasError" Type="Boolean" Nullable="false" />
+          <Property Name="Width" Type="Int32" Nullable="false" />
+          <Property Name="Height" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PhotoFaces" Relationship="Self.FK_PhotoFace_Photo" FromRole="Photo" ToRole="PhotoFace" />
+        </EntityType>
+        <EntityType Name="PhotoFace">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhotoId" Type="Int32" Nullable="false" />
+          <Property Name="CortanaFaceId" Type="Guid" Nullable="false" />
+          <Property Name="Age" Type="Double" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Glasses" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="SmileCalculation" Type="Double" />
+          <Property Name="HasSmile" Type="Boolean" />
+          <Property Name="FaceRectangleTop" Type="Int32" Nullable="false" />
+          <Property Name="FaceRectangleLeft" Type="Int32" Nullable="false" />
+          <Property Name="FaceRectangleHeight" Type="Int32" Nullable="false" />
+          <Property Name="FaceRectangleWidth" Type="Int32" Nullable="false" />
+          <Property Name="FaceGroupId" Type="Guid" />
+          <NavigationProperty Name="Photo" Relationship="Self.FK_PhotoFace_Photo" FromRole="PhotoFace" ToRole="Photo" />
+        </EntityType>
+        <Association Name="FK_PhotoFace_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PhotoFace" Type="Self.PhotoFace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoFace">
+              <PropertyRef Name="PhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GovHack2016Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Photos" EntityType="Self.Photo" />
+          <EntitySet Name="PhotoFaces" EntityType="Self.PhotoFace" />
+          <AssociationSet Name="FK_PhotoFace_Photo" Association="Self.FK_PhotoFace_Photo">
+            <End Role="Photo" EntitySet="Photos" />
+            <End Role="PhotoFace" EntitySet="PhotoFaces" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GovHack2016ModelStoreContainer" CdmEntityContainer="GovHack2016Entities">
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="GovHack2016Model.Photo">
+              <MappingFragment StoreEntitySet="Photo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LocalFileName" ColumnName="LocalFileName" />
+                <ScalarProperty Name="HostingSite" ColumnName="HostingSite" />
+                <ScalarProperty Name="WarConflicts" ColumnName="WarConflicts" />
+                <ScalarProperty Name="PhotoIdentifier" ColumnName="PhotoIdentifier" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+                <ScalarProperty Name="ContentUrl" ColumnName="ContentUrl" />
+                <ScalarProperty Name="IsImageDownloaded" ColumnName="IsImageDownloaded" />
+                <ScalarProperty Name="IsFaceDetected" ColumnName="IsFaceDetected" />
+                <ScalarProperty Name="ErrorText" ColumnName="ErrorText" />
+                <ScalarProperty Name="HasError" ColumnName="HasError" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhotoFaces">
+            <EntityTypeMapping TypeName="GovHack2016Model.PhotoFace">
+              <MappingFragment StoreEntitySet="PhotoFace">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+                <ScalarProperty Name="CortanaFaceId" ColumnName="CortanaFaceId" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Glasses" ColumnName="Glasses" />
+                <ScalarProperty Name="SmileCalculation" ColumnName="SmileCalculation" />
+                <ScalarProperty Name="HasSmile" ColumnName="HasSmile" />
+                <ScalarProperty Name="FaceRectangleTop" ColumnName="FaceRectangleTop" />
+                <ScalarProperty Name="FaceRectangleLeft" ColumnName="FaceRectangleLeft" />
+                <ScalarProperty Name="FaceRectangleHeight" ColumnName="FaceRectangleHeight" />
+                <ScalarProperty Name="FaceRectangleWidth" ColumnName="FaceRectangleWidth" />
+                <ScalarProperty Name="FaceGroupId" ColumnName="FaceGroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

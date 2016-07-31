@@ -1,0 +1,829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{622978D3-399D-477F-BB7C-BCEC0E2782F3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IHero.Web</RootNamespace>
+    <AssemblyName>IHero.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ApplicationInsightsResourceId>/subscriptions/79cdc6cf-b0a7-44a8-b001-5351f3e6ba8e/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/IHero.Web</ApplicationInsightsResourceId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ProjectOxford.Face, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ProjectOxford.Face.1.1.0\lib\portable-net45+wp80+win8+wpa81+aspnetcore50\Microsoft.ProjectOxford.Face.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App\app.js" />
+    <Content Include="App\FacialRecognition.html" />
+    <Content Include="App\FacialRecognitionController.js" />
+    <Content Include="App\Search.html" />
+    <Content Include="App\SearchController.js" />
+    <Content Include="App\welcome.html" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="GovHack2016Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GovHack2016Model.edmx</DependentUpon>
+      <LastGenOutput>GovHack2016Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="GovHack2016Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GovHack2016Model.edmx</DependentUpon>
+      <LastGenOutput>GovHack2016Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="HowToConfigure.txt" />
+    <Content Include="images\NAA\qt_72157628242395505\quinnell-captain-wilmot-clifton_6416255759_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\ralston-lieutenant-colonel-alexander-windeyer_6433571865_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\reid-lance-corporal-ronald-armstrong_6433572063_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\rhodes-captain-randall-lance_6433572147_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\ridley-lieutenant-colonel--john-cecil-thomas-edward-charles_6433572225_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\rigby-lieutenant-william-john_6433572431_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\ross-lieutenant-david-henry-fletcher_6433572527_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\rossell-captain-j-mcfadzean_6433572625_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\rouse-private-edgar_6433572707_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\rutland-lieutenant-john-bishop_6433573083_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\rutledge-lieutenant-colonel-thomas-lloyd-forster_6433572843_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\sampson-captain-burford_6433567975_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\sampson-reginald-william_6712422713_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\scarr-captain-robert-stocker_6433568035_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\scott-captain-william-jinkin-robert_6433568121_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\scott-lieutenant-colonel-alan-humphrey_6433568211_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\sevestre-gunner-allan_6433568623_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\sewell-captain-leonard-greville_6433568721_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\shaughnessy-captain-the-hon-william-john_6433568827_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\shaw-lieutenant-james-harry_6433568915_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\shaw-william-hugh_6712422867_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\shelley-jones-lieutenant-frederick-arthur_6433569011_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\sheppard-captain-everard_6433569085_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\sides-lieutenant-william-gordon_6433569187_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\silverman-private-abraham_6433569337_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\simpson-captain-james-william-albert_6433569405_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\slane-lieutenant-james-charles-francis_6433569467_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\slater-captain-joseph-henry_6433569575_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\smith-captain-percival-lascelles_6433569681_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\smith-lieutenant-colonel-ernest-hilmar_6433569773_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\smyth-lieutenant-wilson-mcneil_6433569883_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\sporne-clarence_6712422969_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\stacke-major-walter-jaques_6433569965_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\steele-captain-david-mcdonald_6433570085_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\stephens-sergeant-john-dunstan_6433570173_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\strachan-captain-william-leighton_6433570401_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\streat-private-george-albert_6433570495_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\street-geoffrey-austin_6712423191_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\street-major-geoffrey-austin_6433567769_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\strong-charles-denniston_6712423339_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\taylor-major-robert-joseph_6416259823_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\teare-phillip_6711489391_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\temperley-norman_6711489497_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\tennant-lieutenant-thomas_6416260025_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\thompson-lieutenant-george-myles_6416260193_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\thornthwaite-francis_6711489637_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\tilney-lieutenant-colonel-leslie-edward_6416257425_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\toll-lieutenant-colonel-frederick-william-distinguished-service-order-vd_6416257717_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\tovell-major-raymond-walter_6416257283_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\traill-captain-john-charles-merriman-military-cross_6416258409_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\travers-reginald-john-albert-distinguished-service-order_6416259683_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\tregarthen-sapper-mark-elmer_6416257879_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\trew-major-william-merriman-distinguished-service-order_6416259109_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\tricks-corporal-arthur-frederick_6416260725_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\true-frank-elliott-trenoweth_6456816751_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\turner-private-edward_6416258613_o.jpg" />
+    <Content Include="images\NAA\qt_72157628242395505\tyson-private-reginald-hartley_6416259481_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\vernon-lieutenant-colonel-hugh-venables_6433573159_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\vizard-sergeant-ernest-charles_6433567829_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\voss-captain-paul-ernest_6433573269_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\vowles-captain-alan-stewart_6433573373_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\wade-driver-francis-charles-gregory_6433573463_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\walduck-lieutenant-robert-gordon_6433573559_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\walker-captain-douglas-pinckney_6433573655_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\walker-george-waterston_6706044999_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\wanliss-lieutenant-colonel-david-sydney_6433573769_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\wareham-lieutenant-edward-graham_6433574005_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\watson-kenneth-darnton_6456844645_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\watson-lieutenant-colonel-russell_6433574085_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\watson-william-thornton_6706045087_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\waugh-frederick-murchison_6706045201_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\wauhope-edward_6456863559_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\weir-lieutenant-colonel-stanley-price_6433574171_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\white-arthur-thomas_6706045311_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\wilson-captain-john-carandini_6433574421_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\wilson-claude-stanley_6706045403_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\wittkopp-charles-august_6706045535_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\woodman-captain-harrold-eustace_6433574503_o.jpg" />
+    <Content Include="images\NAA\uz_72157628242532489\yates-captain-william-thomas_6433574613_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\adams-captain-ph_8809139144_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\anderson-lieut_8809139026_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\barlow-lieut_8798259241_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\barr-lance-corporal-j-a_8798259155_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\barstow-lieut-a_8798259191_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\bennett-lieut-r-f_8808841030_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\biss-private-j-h_8798259051_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\bowring-corporal_9012318538_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\brooker-lieut-colonel-n_8798258821_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\brown-major-t-b_9012706262_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\brunswick-corporal-h-w-no-23204_9012415932_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\burchell-private-g-h_8808840782_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\clayton-lieut-c-e_8798456487_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\corser-major-c-f_9012581202_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\cotter-sergeant-h-e_8809038270_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\cottinger-lieut-h-w_8809038230_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\crace-lieut-j-g_8809038222_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\craike-major-w-a_8798458213_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\cuthbertson-corporal_8798458151_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\dadson-lieutenant-g_8798458161_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\davis-private-d-b_8798457897_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\davis-private-d-b_9012602292_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\dodds-major-j-e-d-e-military-cross_9011342059_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\drake-brockman-lieutenant-colonel-ew_8809036922_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\edwards-lieut-e-c_8809039714_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\elliott-brigadier-general-h-e-distinguished-service-order_9012603420_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\kerr-lieutenant-j-e_8798457799_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\killy-captain-h_9012605364_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\knowles-lieutenant-p-m_9012606250_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\lasse-private-p-r_8798557955_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\lowers-major-w_8798557741_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\mackay-major-jg_8809036830_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\manning-private-j_9011307399_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\martin-fleet-paymaster-a_8809036736_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\mason-lieutenant-wg_8809036784_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\matthews-private-e_9011268505_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\maxwell-captain-ds_9011364515_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\mcintyre-private-cm_8809036606_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\mcmullen-captain-a-o-military-cross_9012560222_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\mells-2nd-lieutenant-gwm_8798456765_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\money-2nd-lieutenant-rh_8798456751_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\moore-2nd-lieutenant-gw_9011377459_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\morrisey-private-fj_9012580604_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\morton-major_8798456619_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\murdoch-lieutenant-colonel-ja_9011450531_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\murray-smith-lieutenant-wd_8798557771_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\newing-gunner_9012636302_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\roberts-2nd-lieutenant-l-d_8798557085_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\robinson-sapper-j_9012689160_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\rose-lieutenant-military-cross_9012691262_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\rowan-captain-j_8798556327_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\sanders-private-william-m-no-122431_9011453199_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\savage-captain-j-s-military-cross_9012639012_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\seaton-major-w-f-mc_9011452265_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\shannon-colonel-w-f_9012640216_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\smith-lieutenant-f-military-cross_9011458403_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\smith-sergeant-g-c_8809139324_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\smythe-major-r-b-distinguished-service-order_9012687424_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\thomas-gunner-ck_9011269095_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\unknown_8809140026_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\warren-colonel_9012694860_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\weedon-lieutenant_8809138826_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\wilkinson-lieutenant-f-r-b-military-cross_9012696290_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\wilkinson-major-h-b-f_9011511941_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\willis-cadet-distinguished-conduct-medal_9012700488_o.jpg" />
+    <Content Include="images\NAA\--unknown_72157633648181254\wilson-captain-t-r-military-cross_9012704164_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\addison-lancelot-mark_6457996853_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\alison-colin-archibald_6457997043_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\allen-william-robert_6457997141_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\allport-roland-bret_6457996959_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\amphlett-captain-frank_6433570735_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\anderson-lieut-kieran-leopold_6433570937_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\apperly-john-ralph_6457997277_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\armstrong-lieut-francis-leofric_6433571135_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\armstrong-lieut-hutton-perkins_6433571333_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\ashley-signaller-william-dixon_6433571511_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\atkinson-captain-james-victor_6433571723_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\backhouse-allan-norman_6457997417_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\bales-joseph_6456056285_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\barnes-john-fothergill_6457997561_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\barrett-lieutenant-rupert-sunderland_6416238683_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\barton-captain-francis-maxwell_6416238993_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\barton-irvine-julius-military-cross_6416239189_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\baxter-herbert_6458029691_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\beamish-thomas-renney_6458029807_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\beardsmore-colonel-robert-henry-distinguished-service-order_6416239495_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\beasley-harold-gascoyne_6458029883_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\bennett-alfred-joshua_6458029987_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\bethune-frank-pogson_6458030081_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\biddle-major-frederick-leslie-distinguished-service-order_6416239719_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\bingle-william-reginald_6458030209_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\birt-2nd-lieutentant-james-coombe_6416240277_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\black-james-jamison_6458030315_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\black-richard-alfred_6458030407_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\blacklow-lieutenant-colonel-archibald-clifford_6416240565_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\blair-robert-walton_6458030495_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\blyth-robert-balmain_6458030585_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\bolingbroke-major-archdale-george-distinguished-service-order_6416240707_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\bond-lionel-wilfred_6458030713_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\booth-norman-gorton_6458030771_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\boyce-lieutenant-leslie-atherton-gerard-military-cross_6416242111_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\braddon-harry-russell_6456083051_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\bray-corporal-william-fennell_6416242845_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\brazenor-lieut-colonel-william-distinguished-service-order_6416244241_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\brennan-lieut-colonel-edward-thomas-military-cross_6416243015_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\brewer-lieut-leslie-john_6416242245_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\broadbent-captain-john-allan-military-cross-john-allan_6416242375_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\brooke-major-baron_6416240953_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\brosnan-edward_6462305861_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\brown-thomas-frederick_6462306087_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\browning-neil_6462306375_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\browning-robert-humphrey_6462306203_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\brownlow-lieut-leonard-rockley_6416244487_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\brownridge-private-joseph_6416244883_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\bruns-lieutenant-ernest-otto-alfred_6416244113_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\bruxner-captain-michael-frederick_6433574723_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\buchanan-august-lyle_6462306501_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\burnage-lieutenant-colonel-granville-john-volunteer-decoration_6416243747_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\burnell-john-gurner_6462306625_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\bussell-lieutenant-alfred-joseph_6416243607_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\byrne-lieutenant-albert-john_6416243467_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cadell-laurence_6495397887_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cadell-lieut-thomas-leonard_6423213595_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cameron-captain-william-mcillwraith_6423213713_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cameron-donald_6495398017_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cameron-major-henry-gervais-lovett_6423213813_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\campbell-eric_6495398129_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\campbell-lieut-douglas-gordon_6423213925_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\campbell-ronald-roy_6495398255_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\carlton-lieut-herbert-william_6423214059_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\carse-lieut-arthur-edward_6423214285_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cavanagh-lieut-righton-john_6423214397_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\chalmers-donald_6495398489_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\chapman-john-joseph_6495398595_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\churcher-edgar-hope_6495398385_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\chute-lieut-claude-henry_6423214545_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\clarke-ernest-victor_6495397569_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\clarke-lieut-colonel-lancelot-fox_6423214883_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\clarke-mordaunt-lindsay_6495397715_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\clasper-lieut-william-urwin_6423214971_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\clayton-lieut-clarence-john_6423215079_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\close-lieut-stanley-robert_6423215607_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\clowes-major-norman_6423215751_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\coburn-lieut-arthur-phillip_6423215869_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\coghill-captain-gilbert-gordon_6423215953_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cohen-lieut-colyn-adrian-keith_6423216051_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\collett-herbert-brayley_6495398843_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\collier-lieut-clarence-timbrell_6423216255_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\collin-lieut-charles-louis_6423216337_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\collins-walter-john_6495398961_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\colvin-major-arthur-edmund_6423216441_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\combs-captain-george-frederick-sutton_6423216675_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\connelly-major-eric-winfield_6423216781_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cooke-justin-sidney_6495399245_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cooke-oswald-francis_6495399597_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cooper-basil-hubert_6495399047_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cooper-frank-horace-willision_6495399743_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cooper-vivian-stewart_6495399133_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\coppleson-captain-victor-marcus_6423216885_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cormack-private-francis-james_6423216965_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\corser-herbert-edward_6495399887_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\coulter-graham_6495400081_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\coulter-major-leslie-jack_6423217059_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\couve-lieut-alan-crawford_6423217341_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\couve-lieut-henry-thomas-ladson_6423217605_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\crewes-lieutenant-keith-raymond_6423223151_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\crofts-private-russell-eustace_6423217715_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\crowl-captain-joseph-terrell_6423217941_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\crowther-henry-arnold_6495400221_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cullen-lieut-hedley-elbert_6423218229_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cummins-william_6495400479_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cunningham-charles-stuart_6495400351_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\currie-lieut-albert-bernard_6423218325_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\currie-patrick_6495400813_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\cuzens-lieut-norman-wilson_6423218413_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\dale-corporal-ernest_6423218579_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\dangerfield-lieut-joseph-garnet_6423218879_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\dare-lieutenant-colonel-charles-moreland-montague_6423218981_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\dargin-corporal-arthur-hampden_6423219091_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\darley-frederick-campbell_6495400989_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\darnell-major-aubrey-hugh_6423219229_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\davenport-lieut-guy-kennedy_6423219335_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\davenport-lieut-guy-kennedy_6423219451_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\davey-lieut-charles-basil-trevor_6423219681_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\davies-david-leslie_6495401111_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\davis-corporal-albert-william_6423219775_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\davis-lance-corporal-william-horace_6423219833_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\dempster-private-joseph-henry_6416241857_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\denehy-lieutenant-colonel-charles-aloysius-distinguished-service-order_6416242499_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\dennis-edwin-john_6495401627_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\derham-charles_6495401225_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\diamond-james_6495401353_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\dickson-selwyn-ray_6456116903_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\dickson-selwyn-ray_6495401521_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\disher-captain-harold-clive_6416245803_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\disher-harold-clive_6495401739_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\doherty-william-gilbert_6495402071_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\donaldson-george-shirley_6495402287_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\donnelly-john-william_6495402457_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\duchesne-william-sydney_6456133677_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\duchesne-william-sydney_6495402901_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\duff-william-watson_6495401837_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\duncan-walter-john-clare_6495401947_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\durant-colonel-james-murdoch-archer-distinguished-service-order_6416246633_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\durrant-james-murdoch-archer_6495403033_o.jpg" />
+    <Content Include="images\NAA\ad_72157628184524589\unknown_6495398725_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\edgley-captain-louis-norman-louis-norman_6423219911_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\edmends-private-albert-charles_6423220173_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\edwards-eric-charles_6503346487_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\elliott-charles-hazell_6503346575_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\ellis-lieut-henry_6423220281_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\ellis-major-walter-whyte_6423220581_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\evans-alexander-arthur_6503346673_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\evans-lieut-thomas-hatfield_6423220875_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\farrell-captain-timothy-bernard_6423221211_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fay-captain-luke-patrick_6423221303_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fenton-horace_6503346791_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\ferguson-george-andrew_6503346843_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\ferguson-george-arthur_6503346953_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fethers-major-erle-finlayson-denton_6423221563_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fetherston-richard-arthur_6503347091_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fewtrell-lieut-colonel-albert-cecil_6423221653_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\ffrench-major-william-reginald-rogers_6423221749_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\finch-charles_6503347181_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\finlay-lieut-george-lush_6423221877_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fitzgerald-richard-francis_6503347271_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fitzpatrick-major-samuel-charles_6423222103_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\flashman-lieut-colonel-james-froude_6423222219_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\flattery-warrant-officer-michael-joseph_6423222305_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fletcher-stanley_6503347379_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\forster-william-blackett_6503347477_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fotheringhame--private-peter_6423222415_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fourro-lieut-f_6423222529_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fraser-lance-corporal-william_6423222685_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\freeman-captain-douglas-stephen_6423223027_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\french-lieut-henry-percy_6433563937_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\frobisher-private-joseph-henry_6433564035_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fry-lieut-colonel-henry-kenneth_6433564149_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fulton-david_6503347699_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\fussell-major-leslie-george_6433564233_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\gallasch-captain-alfred-victor_6416247191_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\galvin-lieutenant-albert-victor_6416247733_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\gearing-lieutenant-harry-alan-cheshire_6416248665_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\geddes-richard-allan_6556780279_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\gee-major-richard-stewart--distinguished-service-order_6416248999_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\genge-lieutenant-richard-morgan_6416249549_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\gibbs-brevet-major-stanley-gordon_6416249749_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\giblin-colonel-wilfred-wanostrocht_6416245503_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\gilbert-arthur-frederick_6556780425_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\gilder-major-archibald-basil-ernest_6416245659_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\glasfurd-duncan-john_6556780513_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\goddard-major-charles-james_6416246303_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\godfrey-captain-arthur-harry-langham_6416246117_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\goucher-major-frederick-thomas-henry_6416246919_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\grassick-lieutenant-frederick_6416247337_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\green-captain-keith-eddowes_6416248381_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\green-lieutenant-ronald-frederick-herbert_6416248827_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\greenaway-william-edward_6456293001_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\grieve-robert-cuthbert_6556780657_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hale-rupertedward_6456309791_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hall-captain-sydney-raymond_6416258239_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hall-reginald_6556780765_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hall-reginald_6556780847_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hallahan-captain-walter-rewi-military-cross-military-medal_6416258963_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hamon-jack_6556780917_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\harbottle-frank_6556780991_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hardie-john-kenneth_6556781047_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hardie-john_6556781153_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hardie-sergeant-rupert-keith_6416260867_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\harper-captain-robert-rainy-distinguished-service-order_6416258727_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\harris-captain-frank-walter_6416260583_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hart-lieutenant-george-hope-campbell_6416257553_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hay-william_6556781243_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hayward-major-lancelot-alfred_6416259239_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\headlam-lieutenant-arthur-slade_6416261477_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hearder-captain-dixon_6416261253_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hemingway-reginald_6556781309_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\henson-william-frederick-clarence_6556781381_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\heron-captain-alexander-robert_6423208707_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\herring-lieutenant-colonel-sydney-charles-edgar_6423208839_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\herring-lieutenant-phillip-charles_6423208995_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hicks-lieutenant-alec-walter_6423209359_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hobler-corporal-cyril-moore_6423209451_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hobson-captain-charles-edward_6423209553_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hobson-sergeant-william-doyle_6423209649_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hogben-george-justice_6556781461_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\huntley-lieutenant-clive-neilson-reynolds_6423209911_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hurcombe-captain-roy-kintore_6423210005_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hurley-lieutenant-colonel-thomas-ernest-victor_6423210101_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hutchings-lieutenant-frank-albert_6423210199_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\hutchinson-john-francis_6456328525_o.jpg" />
+    <Content Include="images\NAA\eh_72157628242223719\huxtable-colonel-robert-beveridge_6423210337_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\imlay-alexander-peter_6625823511_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\imlay-norman-george_6625823385_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\inglis-eric-murray_6625823263_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\inglis-private-william_6416249241_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\irvine-lieutenant-lionel-robert-h_6416256995_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\irvine-major-francis-duncan_6416250273_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\ivison-private-james-miller_6416252373_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\james-lieutenant-colonel-tristram-bernard-wordsworth-distinguished-service-order_6416252557_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\james-major-herbert-military-cross_6416252831_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\jamieson-lieutenant-colonel-sydney_6416253331_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\jenour-lieutenant-charles-evedon_6416254859_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\johnson-captain-alan-syme_6416255375_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\johnson-major-maurice-buchan_6416256643_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\johnston-lieutenant-colonel-james-lyon-cmg-vd_6416250891_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\johnston-lieutenant-james-anderson-kerr_6416251963_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\jolly-lieutenant-william-george-military-cross_6416250655_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\jones-frank-harold_6625823775_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\jopp-arthur-harold-keith_6625823625_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\judd-lieutenant-leonard_6416253115_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\kay-lieutenant-william-maurice_6433564337_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\kerr-john-ross_6632702419_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\kiddle-sergeant-john-clark_6433564485_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\kimpton-lieutenant-robinson-charles_6433564611_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\klug-lieutenant-george-eric_6433564911_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\laidlay-lieutenant-william-shepherd_6433565087_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\lamrock-captain-john-james-campbell_14928276848_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\lamrock-lieutenant-william-leith_6433565195_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\leane-raymond-lionel_6632702513_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\lee-harry-bertie_6632702635_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\leng-private-thomas_6433565309_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\leslie-captain-walter-aland_6433565581_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\lewers-major-hugh-bennett-obe_6433565663_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\lilley-2nd-lieutenant-john-henry_6433565837_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\lindon-lieutenant-james-hemery_6433565935_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\lindsay-lieutenant-gordon-james_6433566043_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\linsley-lieutenant-gordon_6433566173_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\lloyd-griffith-sanderson_6632940349_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\longstreeth-thomas_6632940467_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\luxton-lieutenant-colonel-daniel-aston_6433566285_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\lyddon-lieutenant-hugh-edmund_6433566357_o.jpg" />
+    <Content Include="images\NAA\il_72157628242241045\lyons-lieutenant-leon-maurice_6433566483_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\6416250447_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\macdonald-roderick-frances_6704157589_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\macgee-ashley-merton_6456415805_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mackenzie-private-george-hector_6423210723_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\macpherson-allan-stuart_6704158413_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mansbridge-lieutenant-colonel-william-owen_6423210815_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mansbridge-lieutenant-colonel-william-owen_6433567705_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mark-corporal-edward-leslie_6423211027_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\marks-major-douglas-gray_6423211113_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\marr-lieutenant-frederick-cyril_6423211221_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\martin-albert_6704158807_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\martin-captain-archibald-farquhar_6423211303_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\massie-hugh-vaughan_6456443651_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\matsonthomas_6704158937_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\matthews-lieutenant-george-william_6423211385_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mcburnie-captain-edward-daniel_6433566599_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mccann-william-francis-james_6632979813_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mccann-william-francis-james_6632979903_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mcglinn-lieutenant-colonel-john-patrick_6423211475_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mcintosh-robert-bruce_6704157861_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mcintyre-captain-sidney-lewis_6423211583_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mckillop-robert-alexander_6704158089_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mclean-william-malcolm_6704158277_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mcleod-lieutenant-maurice-leslie_6423211951_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mcmullin-lieutenant-walter-john_6433567897_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mcpherson-john-frederick_6704158629_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mcwilliams-major-henry-heber_6423212071_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mead-lance-corporal-jack_6423212271_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mead-sergeant-harry-alexander-charles_6423212447_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\meyers-ernest-henry-william_6704159073_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\middleton-captain-douglas-francis_6423212523_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\milne-lieutenant-colonel-john-alexander_6423212701_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\morphett-private-arthur-hurtle_6423213019_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mountain-lieutenant-arthur-henry-torres_6423213317_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\muirson-kenneth-basil_6704159337_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mulholland-captain-duncan-victor_6433566701_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\mulholland-lieutenant-william-james_6433566787_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\munro-alexander-james_6704159641_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\munro-gordon-albert_6704160789_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\needham-lieutenant-francis-jack_6433566865_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\newland-alan-john_6704160959_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\newmarch-colonel-bernard-james_6433566945_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\nolan-lieutenant-morven-kelynack_6433567039_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\norrie-lieutenant-athol_6433567109_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\orr-captain-charles-manning_6433567389_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\osullivan-captain-michael-brendan_6433567503_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\owen-sergeant-robert-s_6433567623_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\pain-hedley-claude-wilson_6705718349_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\panton-alexander-waugh_6456499955_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\parsonage-lieutenant-willliam-mc_6416254635_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\parsons-frederick-ernest_6705718457_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\paterson-lieutenant-albert-victor-military-medal_6416256089_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\paterson-lieutenant-fairlie-alexander_6416255213_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\paton-frank-mckinnon_6705718585_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\payne-warren-roy_6705718253_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\perkins-captain-sydney-edward_6416256281_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\perkins-lieutenant-sydney-edward_6416256863_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\pickering-captain-richard-fleetwood_6416257145_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\piercey-roy-lyndon_6705718825_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\pope-lieutenant-colonel-harold_6416251297_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\porter-cuthbert-carlton_6705718955_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\proudfoot-lieutenant-w-mcleod_6416253511_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\pugh-captain-cyril-hunwick_6416254167_o.jpg" />
+    <Content Include="images\NAA\mp_72157628242276821\pulsford-frank-edgar-esq_6416255065_o.jpg" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="scripts\angular-animate.js" />
+    <Content Include="scripts\angular-animate.min.js" />
+    <Content Include="scripts\angular-mocks.js" />
+    <Content Include="scripts\angular-resource.js" />
+    <Content Include="scripts\angular-resource.min.js" />
+    <Content Include="scripts\angular-route.js" />
+    <Content Include="scripts\angular.js" />
+    <Content Include="scripts\angular.min.js" />
+    <Content Include="scripts\angular.min.js.map" />
+    <Content Include="scripts\angular-animate.min.js.map" />
+    <Content Include="scripts\angular-resource.min.js.map" />
+    <EntityDeploy Include="GovHack2016Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GovHack2016Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="GovHack2016Model.edmx.diagram">
+      <DependentUpon>GovHack2016Model.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\iHero.pubxml" />
+    <None Include="scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="scripts\AngularUI\ui-router.js" />
+    <Content Include="scripts\AngularUI\ui-router.min.js" />
+    <Content Include="scripts\TargetScrolling.js" />
+    <Content Include="scripts\jquery-1.9.1.js" />
+    <Content Include="scripts\jquery-1.9.1.min.js" />
+    <Content Include="scripts\ui-bootstrap-tpls-1.3.2.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="font-awesome\less\bordered-pulled.less" />
+    <Content Include="font-awesome\less\core.less" />
+    <Content Include="font-awesome\less\fixed-width.less" />
+    <Content Include="font-awesome\less\font-awesome.less" />
+    <Content Include="font-awesome\less\icons.less" />
+    <Content Include="font-awesome\less\larger.less" />
+    <Content Include="font-awesome\less\list.less" />
+    <Content Include="font-awesome\less\mixins.less" />
+    <Content Include="font-awesome\less\path.less" />
+    <Content Include="font-awesome\less\rotated-flipped.less" />
+    <Content Include="font-awesome\less\spinning.less" />
+    <Content Include="font-awesome\less\stacked.less" />
+    <Content Include="font-awesome\less\variables.less" />
+    <Content Include="font-awesome\scss\font-awesome.scss" />
+    <Content Include="font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="font-awesome\scss\_core.scss" />
+    <Content Include="font-awesome\scss\_fixed-width.scss" />
+    <Content Include="font-awesome\scss\_icons.scss" />
+    <Content Include="font-awesome\scss\_larger.scss" />
+    <Content Include="font-awesome\scss\_list.scss" />
+    <Content Include="font-awesome\scss\_mixins.scss" />
+    <Content Include="font-awesome\scss\_path.scss" />
+    <Content Include="font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="font-awesome\scss\_spinning.scss" />
+    <Content Include="font-awesome\scss\_stacked.scss" />
+    <Content Include="font-awesome\scss\_variables.scss" />
+    <Content Include="scripts\jquery-1.9.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\ihero.css" />
+    <Content Include="font-awesome\css\font-awesome.css" />
+    <Content Include="font-awesome\css\font-awesome.min.css" />
+    <Content Include="font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\bg2.jpg" />
+    <Content Include="images\BgWithText.jpg" />
+    <Content Include="images\BgWithText2.jpg" />
+    <Content Include="images\bg_4.jpg" />
+    <Content Include="images\bg_orig.jpg" />
+    <Content Include="images\callout.jpg" />
+    <Content Include="images\callout_old.jpg" />
+    <Content Include="images\photoshop\battlefield-4-wallpaper-photos-for-desktop-background-free.jpg" />
+    <Content Include="images\photoshop\bg.jpg" />
+    <Content Include="images\photoshop\orange_sunset_wallpaper_2c50d.jpg" />
+    <Content Include="images\photoshop\pf\Antique Large.jpg" />
+    <Content Include="images\photoshop\pf\Blue City Lights.jpg" />
+    <Content Include="images\photoshop\pf\Film Photography.jpg" />
+    <Content Include="images\photoshop\pf\Gallery Visitor Large.jpg" />
+    <Content Include="images\photoshop\pf\ReproductionFantasia.jpg" />
+    <Content Include="images\photoshop\pf\Reproductionjpg.jpg" />
+    <Content Include="images\photoshop\pf\retro.jpg" />
+    <Content Include="images\photoshop\pf\Triptych Regular.jpg" />
+    <Content Include="images\portfolio-1.jpg" />
+    <Content Include="images\portfolio-2.jpg" />
+    <Content Include="images\portfolio-3.jpg" />
+    <Content Include="images\portfolio-4.jpg" />
+    <Content Include="index.html" />
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\FacialRecognitionController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CortanaService.cs" />
+    <Compile Include="Services\DataService.cs" />
+    <Compile Include="GovHack2016Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GovHack2016Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GovHack2016Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GovHack2016Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GovHack2016Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GovHack2016Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Photo.cs">
+      <DependentUpon>GovHack2016Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhotoFace.cs">
+      <DependentUpon>GovHack2016Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FacialRecognitionService.cs" />
+    <Compile Include="Services\PhotoProcessor.cs" />
+    <Compile Include="ViewModels\DetectFaceViewModel.cs" />
+    <Compile Include="ViewModels\FaceRectangleViewModel.cs" />
+    <Compile Include="ViewModels\FacialRecognitionViewModel.cs" />
+    <Compile Include="ViewModels\PhotoFaceViewModel.cs" />
+    <Compile Include="ViewModels\PhotoViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>7285</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:7285/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
